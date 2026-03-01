@@ -59,26 +59,4 @@ jobs:
           path: "."
       - uses: actions/deploy-pages@v4
         id: deployment
-```
 
----
-
-**Step 3 — Commit**
-
-Click green **"Commit new file"** → **"Commit changes"**
-
----
-
-**Step 4 — Also delete the misplaced file in root**
-
-Go to:
-```
-https://github.com/SAziz47/market_dashboard/blob/main/refresh_data.yml
-```
-Click trash icon 🗑 → **Commit changes** → **Commit changes**
-
----
-
-**Step 5 — Run the workflow**
-```
-https://github.com/SAziz47/market_dashboard/actions
