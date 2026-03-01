@@ -2,7 +2,7 @@ name: Refresh dashboard data
 
 on:
   schedule:
-    - cron: "00 11 * * 1-5"   # 4:30 PM IST, weekdays
+    - cron: "00 11 * * 1-5"
   workflow_dispatch:
 
 permissions:
@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-          fetch-depth: 0        # full history so push never conflicts
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -38,9 +38,7 @@ jobs:
             exit 0
           fi
           git commit -m "chore: refresh data $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git fetch origin main
-          git rebase origin/main
-          git push origin main
+          git push --force origin main
 
   deploy:
     needs: build
